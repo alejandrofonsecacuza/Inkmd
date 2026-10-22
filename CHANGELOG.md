@@ -6,6 +6,15 @@ project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- macOS support: CI on macOS and release binaries for Apple Silicon and Intel.
+
+### Changed
+
+- The terminal query uses `select(2)` instead of `poll(2)`, which does not
+  work on terminal devices on macOS.
+
 ## [0.1.0] - 2026-10-22
 
 First public release.

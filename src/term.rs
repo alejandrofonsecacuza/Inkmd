@@ -204,6 +204,23 @@ fn has_da1(buf: &[u8]) -> bool {
     false
 }
 
+/// Wait until `fd` has data or `timeout` expires. Uses select(2) rather than
+/// poll(2): on macOS, poll does not work on terminal devices.
+fn readable(fd: i32, timeout: Duration) -> bool {
+    if fd >= libc::FD_SETSIZE as i32 {
+        return false;
+    }
+    // SAFETY: `set` is a zeroed fd_set initialized with FD_ZERO/FD_SET for a
+    // descriptor below FD_SETSIZE; select only reads and writes these locals.
+    unsafe {
+        let mut set: libc::fd_set = std::mem::zeroed();
+        libc::FD_ZERO(&mut set);
+        libc::FD_SET(fd, &mut set);
+        let mut tv = libc::timeval { tv_sec: timeout.as_secs() as _, tv_usec: timeout.subsec_micros() as _ };
+        libc::select(fd + 1, &mut set, std::ptr::null_mut(), std::ptr::null_mut(), &mut tv) > 0
+    }
+}
+
 /// Write `query` to the controlling terminal in non-canonical, no-echo mode
 /// and collect the reply until a DA1 response is seen or `timeout` expires.
 fn query_tty(query: &[u8], timeout: Duration) -> Option<Vec<u8>> {
@@ -237,8 +254,7 @@ fn query_tty(query: &[u8], timeout: Duration) -> Option<Vec<u8>> {
                 if left.is_zero() {
                     break;
                 }
-                let mut pfd = libc::pollfd { fd, events: libc::POLLIN, revents: 0 };
-                if libc::poll(&mut pfd, 1, left.as_millis().max(1) as i32) <= 0 {
+                if !readable(fd, left) {
                     break;
                 }
                 let n = libc::read(fd, buf.as_mut_ptr().cast(), buf.len());

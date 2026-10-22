@@ -13,18 +13,23 @@ env:
 
 jobs:
   test:
-    name: Test (${{ matrix.rust }}${{ matrix.features && format(', {0}', matrix.features) || '' }})
-    runs-on: ubuntu-latest
+    name: Test (${{ matrix.os }}, ${{ matrix.rust }}${{ matrix.features && format(', {0}', matrix.features) || '' }})
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         include:
-          - rust: stable
-          - rust: stable
+          - os: ubuntu-latest
+            rust: stable
+          - os: ubuntu-latest
+            rust: stable
             features: --no-default-features
-          - rust: "1.88"
+          - os: ubuntu-latest
+            rust: "1.88"
+          - os: macos-latest
+            rust: stable
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@master
         with:
           toolchain: ${{ matrix.rust }}
@@ -35,7 +40,7 @@ jobs:
     name: Format and Clippy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt, clippy
@@ -48,7 +53,7 @@ jobs:
     name: Benchmarks compile
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - run: cargo bench --locked --no-run

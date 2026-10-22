@@ -1,6 +1,6 @@
 # inkmd
 
-A fast, minimal Markdown renderer for Linux terminals, written in Rust.
+A fast, minimal Markdown renderer for Linux and macOS terminals, written in Rust.
 
 ```bash
 inkmd README.md
@@ -37,17 +37,22 @@ them. When it does not, the output degrades gracefully.
 
 ### From source
 
-You need Rust 1.88 or newer and a C compiler (`cc`). The C compiler builds
-Oniguruma, the regex engine used for syntax highlighting.
+You need Rust 1.88 or newer and a C compiler. The C compiler builds
+Oniguruma, the regex engine used for syntax highlighting. On Linux that is
+`cc`/`gcc`; on macOS, the Xcode Command Line Tools (`xcode-select --install`).
 
 ```bash
 cargo build --release
-install -Dm755 target/release/inkmd ~/.local/bin/inkmd
+mkdir -p ~/.local/bin
+cp target/release/inkmd ~/.local/bin/
 ```
 
-`~/.local/bin` must be in your `PATH`. Many distributions add it automatically
-at login when the directory exists. If yours does not, add this line to
-`~/.bashrc` or `~/.zshrc` and open a new terminal:
+Alternatively, `cargo install --path .` installs it into `~/.cargo/bin`.
+
+`~/.local/bin` must be in your `PATH`. Many Linux distributions add it
+automatically at login when the directory exists; macOS does not. If yours
+does not, add this line to `~/.zshrc` (the default shell on macOS) or
+`~/.bashrc` and open a new terminal:
 
 ```bash
 export PATH="$HOME/.local/bin:$PATH"
@@ -57,19 +62,33 @@ Check the result with `command -v inkmd`.
 
 ### Prebuilt binaries
 
-The release page provides statically linked (musl) binaries for x86_64 and
-aarch64 Linux. They have no runtime dependencies:
+The [releases page](https://github.com/alejandrofonsecacuza/Inkmd/releases)
+provides binaries with no runtime dependencies:
+
+| Platform | Archive |
+|---|---|
+| Linux x86_64 (static, musl) | `inkmd-<version>-x86_64-unknown-linux-musl.tar.gz` |
+| Linux ARM64 (static, musl) | `inkmd-<version>-aarch64-unknown-linux-musl.tar.gz` |
+| macOS Apple Silicon | `inkmd-<version>-aarch64-apple-darwin.tar.gz` |
+| macOS Intel | `inkmd-<version>-x86_64-apple-darwin.tar.gz` |
 
 ```bash
-tar xzf inkmd-*-x86_64-unknown-linux-musl.tar.gz
-install -Dm755 inkmd-*/inkmd ~/.local/bin/inkmd
+tar xzf inkmd-*.tar.gz
+mkdir -p ~/.local/bin
+cp inkmd-*/inkmd ~/.local/bin/
 ```
+
+The macOS binaries are not signed by Apple. If the archive was downloaded
+with a browser and macOS refuses to run it, remove the quarantine attribute:
+`xattr -d com.apple.quarantine ~/.local/bin/inkmd`. Archives downloaded with
+`curl` are not affected.
 
 ### Build options
 
 The `release` profile already uses full LTO, a single codegen unit,
 `panic = "abort"` and stripped symbols. The resulting binary is about 3.4 MB,
-most of it syntax grammars. It only depends on the system glibc.
+most of it syntax grammars. On Linux it only depends on the system glibc; on
+macOS, on the system libraries.
 
 ```bash
 # Optimize for the local CPU (the binary will not run on older CPUs):
@@ -79,7 +98,7 @@ RUSTFLAGS="-C target-cpu=native" cargo build --release
 # decoding, and no C compiler needed:
 cargo build --release --no-default-features
 
-# Fully static binary:
+# Fully static Linux binary:
 rustup target add x86_64-unknown-linux-musl
 cargo build --release --target x86_64-unknown-linux-musl
 ```
@@ -237,6 +256,21 @@ symbols, and so on.
 
 Color depth is read from `COLORTERM`/`TERM`. That is the de facto convention:
 there is no reliable, universal query for it.
+
+### Terminals
+
+What each feature needs, and some terminals known to provide it:
+
+| Feature | Requirement | Examples |
+|---|---|---|
+| Styled text, 16/256 colors | ANSI escape codes | Virtually every terminal, including macOS Terminal.app and the Linux console |
+| 24-bit color | `COLORTERM=truecolor` | Kitty, WezTerm, Ghostty, iTerm2, Alacritty, GNOME Terminal, Konsole |
+| Inline images | Kitty graphics or iTerm2 protocol | Kitty, Ghostty, WezTerm, iTerm2 |
+| Scaled headings | Kitty text sizing protocol | Kitty ≥ 0.40 |
+
+Everything is detected at run time. A missing feature falls back to text and
+never affects readability. macOS Terminal.app, for example, gets 256 colors
+and text placeholders for images.
 
 ### Unicode and ASCII
 
@@ -405,7 +439,7 @@ extra layers.
 | `unicode-width` | Display width according to the Unicode standard (UAX #11). |
 | `unicode-segmentation` | Grapheme clusters, so a combined character is never split. |
 | `lexopt` | Minimal argument parser: no macros, no startup cost. |
-| `libc` | `isatty`, `ioctl`, `termios`, `poll`, `SIGPIPE`: just what is needed to talk to the terminal. |
+| `libc` | `isatty`, `ioctl`, `termios`, `select`, `SIGPIPE`: just what is needed to talk to the terminal. |
 | `syntect` + `two-face` (optional) | Highlighting with Sublime/bat grammars: good quality and wide coverage. Oniguruma is used because it is faster than the pure-Rust engine. |
 | `image` (optional) | Only the JPEG/GIF/WebP/PNG decoders, for Kitty. |
 | `criterion` (dev) | Statistical benchmarks. |
@@ -488,7 +522,7 @@ The documents are generated deterministically (`benches/gen.rs`):
 - **code**: code blocks only;
 - **tables**: tables only.
 
-The results below were measured on an Intel Core Ultra 7 255U (Linux 6.17).
+The results below were measured on Linux, on an Intel Core Ultra 7 255U.
 They are only indicative. **No comparisons with other tools have been made.**
 
 In memory (`cargo bench`, median):
@@ -531,6 +565,10 @@ code takes about 0.6 ms.
   most terminals make clickable.
 - **iTerm2/WezTerm** support was verified against a simulated terminal, not
   the real applications. Kitty is the reference protocol.
+- **macOS** is built and tested in CI. The terminal query uses `select(2)`,
+  because `poll(2)` does not work on terminal devices there. The release
+  binaries are not signed or notarized by Apple.
+- **Windows** is not supported (WSL works, as Linux).
 - **Remote images** are never shown, by design. SVG is not rasterized.
 - **Math** is converted to Unicode approximately. Matrices, alignments and
   complex nested fractions are flattened.
