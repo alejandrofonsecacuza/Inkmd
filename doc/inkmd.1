@@ -1,0 +1,135 @@
+.TH INKMD 1 "2026-10-22" "inkmd 1.0.0" "User Commands"
+.SH NAME
+inkmd \- render Markdown in the terminal
+.SH SYNOPSIS
+.B inkmd
+[\fIOPTIONS\fR] [\fIFILE\fR...]
+.SH DESCRIPTION
+.B inkmd
+renders Markdown documents directly in the terminal and exits.
+It supports CommonMark plus the GitHub Flavored Markdown extensions (tables,
+task lists, strikethrough, footnotes, alerts, autolinks), front matter,
+definition lists, math (converted to Unicode) and a safe subset of HTML.
+.PP
+Fenced code blocks are syntax highlighted.
+On terminals that support them, images are drawn inline (Kitty graphics or
+iTerm2 protocol) and headings are scaled by level (Kitty text sizing
+protocol).
+Every feature is detected at run time and falls back to plain text, so the
+document always stays readable.
+.PP
+With no
+.IR FILE ,
+or when
+.I FILE
+is
+.BR \- ,
+standard input is read.
+When standard output is not a terminal, plain text without escape sequences
+is written, unless
+.B \-\-color always
+is given.
+.SH OPTIONS
+.TP
+.BR \-w ", " \-\-width " " \fIN\fR
+Wrap at
+.I N
+columns (10\(en10000).
+By default the terminal width is used, capped at 100 columns.
+When standard output is not a terminal,
+.B COLUMNS
+or 80 is used.
+.TP
+.BR \-\-color " " \fIWHEN\fR
+Use colors and text styles:
+.BR auto " (default), " always " or " never .
+.B never
+still allows bold and italic on a terminal.
+.TP
+.B \-\-no\-color
+Same as
+.BR "\-\-color never" .
+.TP
+.BR \-\-images " " \fIMODE\fR
+Inline images:
+.BR auto " (default, detect the terminal), " never ,
+.BR kitty " or " iterm2
+(force a protocol).
+Only local files are displayed; remote images are never downloaded.
+.TP
+.BR \-\-big\-headings " " \fIWHEN\fR
+Scale headings by level with the Kitty text sizing protocol:
+.BR auto " (default), " always " or " never .
+.TP
+.BR \-\-theme " " \fINAME\fR
+Color theme:
+.BR ansi " (default, uses the terminal palette), " dark " or " light .
+.TP
+.B \-\-ascii
+Use only ASCII symbols for list markers, quotes, rules and table borders.
+.TP
+.BR \-h ", " \-\-help
+Print a short help and exit.
+.TP
+.BR \-V ", " \-\-version
+Print the version and exit.
+.SH ENVIRONMENT
+.TP
+.B NO_COLOR
+If set and not empty, disables colors (bold and italic remain).
+.TP
+.B CLICOLOR_FORCE
+If set and not 0, forces styled output even when standard output is not a
+terminal.
+.TP
+.BR COLORTERM ", " TERM
+Determine the color depth:
+.B COLORTERM=truecolor
+enables 24-bit color,
+.B TERM=*256color*
+256 colors, and
+.B TERM=dumb
+disables styling.
+.TP
+.BR LC_ALL ", " LC_CTYPE ", " LANG
+A non-UTF-8 locale selects ASCII symbols.
+.TP
+.B INKMD_THEME
+Default theme, as for
+.BR \-\-theme .
+.TP
+.B INKMD_DEBUG
+If set to 1, explains terminal capability detection and image decisions on
+standard error.
+.SH EXIT STATUS
+.TP
+.B 0
+Success.
+.TP
+.B 1
+At least one file could not be read; the others were still rendered.
+.TP
+.B 2
+Invalid command line usage.
+.SH SECURITY
+Documents are treated as untrusted.
+Control characters from the document are replaced by visible symbols, so a
+document cannot send escape sequences to the terminal.
+Nothing in a document is executed and nothing is downloaded.
+.SH EXAMPLES
+.TP
+.B inkmd README.md
+Render a file.
+.TP
+.B curl \-s https://example.com/doc.md | inkmd
+Render Markdown from another program.
+.TP
+.B inkmd \-\-color always README.md | less \-R
+Page a long document while keeping colors.
+.TP
+.B INKMD_DEBUG=1 inkmd doc.md
+Show why images are or are not displayed.
+.SH SEE ALSO
+.BR less (1)
+.PP
+https://github.com/alejandrofonsecacuza/Inkmd

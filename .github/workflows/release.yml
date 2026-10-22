@@ -59,7 +59,7 @@ jobs:
         run: |
           dir="$NAME-${GITHUB_REF_NAME}-${{ matrix.target }}"
           mkdir "$dir"
-          cp "target/${{ matrix.target }}/release/$NAME" README.md CHANGELOG.md LICENSE-MIT LICENSE-APACHE "$dir/"
+          cp "target/${{ matrix.target }}/release/$NAME" doc/inkmd.1 README.md CHANGELOG.md LICENSE-MIT LICENSE-APACHE "$dir/"
           tar czf "$dir.tar.gz" "$dir"
           shasum -a 256 "$dir.tar.gz" > "$dir.tar.gz.sha256"
           echo "ASSET=$dir.tar.gz" >> "$GITHUB_ENV"

@@ -35,6 +35,55 @@ them. When it does not, the output degrades gracefully.
 
 ## Installation
 
+### Quick install (Linux and macOS)
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/alejandrofonsecacuza/Inkmd/main/install.sh | sh
+```
+
+The [script](install.sh) detects your system (Linux or macOS, x86_64 or
+ARM64) and downloads the matching binary from the latest release. It checks
+the binary's SHA-256 checksum, installs it to `~/.local/bin` and installs the
+manual page (`man inkmd`). Nothing else is touched, and no `sudo` is needed.
+
+- Another location: `... | INKMD_INSTALL_DIR=/usr/local/bin sh` (with
+  `sudo sh` if that directory needs it).
+- A specific version: `... | INKMD_VERSION=v1.0.0 sh`.
+- To uninstall: `rm ~/.local/bin/inkmd ~/.local/share/man/man1/inkmd.1`.
+
+If `~/.local/bin` is not in your `PATH` (it is not by default on macOS), the
+script tells you. Add this line to `~/.zshrc` or `~/.bashrc` and open a new
+terminal:
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+### Manual download
+
+Download the archive for your system from the
+[releases page](https://github.com/alejandrofonsecacuza/Inkmd/releases).
+The binaries have no runtime dependencies.
+
+| System | Archive |
+|---|---|
+| Linux x86_64 | `inkmd-<version>-x86_64-unknown-linux-musl.tar.gz` |
+| Linux ARM64 | `inkmd-<version>-aarch64-unknown-linux-musl.tar.gz` |
+| macOS Apple Silicon (M1 and later) | `inkmd-<version>-aarch64-apple-darwin.tar.gz` |
+| macOS Intel | `inkmd-<version>-x86_64-apple-darwin.tar.gz` |
+
+```bash
+tar xzf inkmd-*.tar.gz
+mkdir -p ~/.local/bin ~/.local/share/man/man1
+cp inkmd-*/inkmd ~/.local/bin/
+cp inkmd-*/inkmd.1 ~/.local/share/man/man1/
+```
+
+The macOS binaries are not signed by Apple. If you downloaded the archive with
+a browser and macOS refuses to run the binary, remove the quarantine attribute:
+`xattr -d com.apple.quarantine ~/.local/bin/inkmd`. The install script and
+`curl` downloads are not affected.
+
 ### From source
 
 You need Rust 1.88 or newer and a C compiler. The C compiler builds
@@ -43,45 +92,10 @@ Oniguruma, the regex engine used for syntax highlighting. On Linux that is
 
 ```bash
 cargo build --release
-mkdir -p ~/.local/bin
+mkdir -p ~/.local/bin ~/.local/share/man/man1
 cp target/release/inkmd ~/.local/bin/
+cp doc/inkmd.1 ~/.local/share/man/man1/
 ```
-
-Alternatively, `cargo install --path .` installs it into `~/.cargo/bin`.
-
-`~/.local/bin` must be in your `PATH`. Many Linux distributions add it
-automatically at login when the directory exists; macOS does not. If yours
-does not, add this line to `~/.zshrc` (the default shell on macOS) or
-`~/.bashrc` and open a new terminal:
-
-```bash
-export PATH="$HOME/.local/bin:$PATH"
-```
-
-Check the result with `command -v inkmd`.
-
-### Prebuilt binaries
-
-The [releases page](https://github.com/alejandrofonsecacuza/Inkmd/releases)
-provides binaries with no runtime dependencies:
-
-| Platform | Archive |
-|---|---|
-| Linux x86_64 (static, musl) | `inkmd-<version>-x86_64-unknown-linux-musl.tar.gz` |
-| Linux ARM64 (static, musl) | `inkmd-<version>-aarch64-unknown-linux-musl.tar.gz` |
-| macOS Apple Silicon | `inkmd-<version>-aarch64-apple-darwin.tar.gz` |
-| macOS Intel | `inkmd-<version>-x86_64-apple-darwin.tar.gz` |
-
-```bash
-tar xzf inkmd-*.tar.gz
-mkdir -p ~/.local/bin
-cp inkmd-*/inkmd ~/.local/bin/
-```
-
-The macOS binaries are not signed by Apple. If the archive was downloaded
-with a browser and macOS refuses to run it, remove the quarantine attribute:
-`xattr -d com.apple.quarantine ~/.local/bin/inkmd`. Archives downloaded with
-`curl` are not affected.
 
 ### Build options
 
@@ -110,6 +124,9 @@ cargo build --release --target x86_64-unknown-linux-musl
 
 ## Usage
 
+The full reference is in the manual page: `man inkmd` (or `man doc/inkmd.1`
+from the source tree).
+
 ```bash
 inkmd README.md                     # render a file
 inkmd README.md CONTRIBUTING.md     # several files, each with a header
@@ -137,6 +154,8 @@ Options:
       --ascii          Use only ASCII symbols for markers and borders
   -h, --help           Print help
   -V, --version        Print version
+
+Full documentation: man inkmd
 ```
 
 Behavior:

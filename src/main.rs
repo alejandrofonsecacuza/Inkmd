@@ -39,6 +39,8 @@ Options:
 
 Environment: NO_COLOR disables colors; CLICOLOR_FORCE forces them;
 INKMD_THEME sets the default theme; INKMD_DEBUG=1 explains image decisions.
+
+Full documentation: man inkmd
 "
     )
 }

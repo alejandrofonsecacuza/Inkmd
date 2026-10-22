@@ -6,8 +6,14 @@ project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-10-22
+
 ### Added
 
+- Install script for Linux and macOS:
+  `curl -fsSL https://raw.githubusercontent.com/alejandrofonsecacuza/Inkmd/main/install.sh | sh`.
+- Manual page (`man inkmd`), included in the release archives.
+- Screenshots in the README.
 - macOS support: CI on macOS and release binaries for Apple Silicon and Intel.
 
 ### Changed

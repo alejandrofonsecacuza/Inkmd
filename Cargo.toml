@@ -1,6 +1,6 @@
 [package]
 name = "inkmd"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
 rust-version = "1.88"
 description = "Fast, minimal Markdown renderer for the terminal"
@@ -10,7 +10,7 @@ repository = "https://github.com/alejandrofonsecacuza/Inkmd"
 homepage = "https://github.com/alejandrofonsecacuza/Inkmd"
 keywords = ["markdown", "terminal", "cli", "viewer"]
 categories = ["command-line-utilities"]
-exclude = [".github/", "scripts/"]
+exclude = [".github/", "scripts/", "doc/screenshots/"]
 
 [[bin]]
 name = "inkmd"
