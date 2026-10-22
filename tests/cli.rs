@@ -20,7 +20,11 @@ fn run(args: &[&str], stdin: Option<&[u8]>) -> Output {
     c.stdin(if stdin.is_some() { Stdio::piped() } else { Stdio::null() });
     let mut child = c.spawn().unwrap();
     if let Some(input) = stdin {
-        child.stdin.take().unwrap().write_all(input).unwrap();
+        // The process may exit before reading its input (e.g. on a usage error).
+        match child.stdin.take().unwrap().write_all(input) {
+            Err(e) if e.kind() == std::io::ErrorKind::BrokenPipe => {}
+            r => r.unwrap(),
+        }
     }
     child.wait_with_output().unwrap()
 }
