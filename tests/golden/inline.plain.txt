@@ -1,0 +1,31 @@
+Emphasis: italic, also italic, bold, also bold, bold italic,
+bold with nested italic inside, ~~strikethrough~~, ~~single
+tilde~~.
+
+Escapes: *not italic*, # not heading, [not a link], 1. not a
+list.
+
+Entities: & < > © © 😀  end.
+
+Links: inline (https://example.com), with title
+(https://example.com), reference
+(https://example.org/reference), collapsed
+(https://example.org/collapsed), shortcut
+(https://example.org/shortcut), https://auto.link,
+user@example.com, https://www.bare-url.org, relative
+(docs/guide.md), anchor, WikiLink.
+
+Line with trailing spaces for a hard break
+next line, and a backslash break
+last line.
+
+Footnotes[note] and more[long].
+
+[note] A short note.
+
+[long] A longer footnote that has enough text to wrap onto a
+       second line when the width is small.
+
+Inline math E = mc² and ∫₀^∞ e^(-x) dx = 1.
+
+Superscript-like text: x^2^ and H~2~O.

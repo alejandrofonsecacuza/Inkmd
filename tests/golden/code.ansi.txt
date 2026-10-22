@@ -1,0 +1,36 @@
+    \e[0;2;3mpython\e[0m
+    \e[0;35mdef\e[0m \e[0;34mgreet\e[0m(name: \e[0;36mstr\e[0m) -> \e[0;36mstr\e[0m:
+        \e[0;2;3m"""Docstring."""\e[0m
+        \e[0;35mreturn\e[0m \e[0;35mf\e[0;32m"Hello, \e[0m{name}\e[0;32m!"\e[0m  \e[0;2;3m# comment\e[0m
+
+    \e[0;2;3mjs\e[0m
+    \e[0;35mconst\e[0m x = [\e[0;33m1\e[0m, \e[0;33m2\e[0m, \e[0;33m3\e[0m].\e[0;34mmap\e[0m((n) \e[0;35m=>\e[0m n * \e[0;33m2\e[0m);
+
+    \e[0;2;3mdiff\e[0m
+    \e[0;31m- removed line\e[0m
+    \e[0;32m+ added line\e[0m
+
+    \e[0;2;3mjson\e[0m
+    {\e[0;32m"key"\e[0m: \e[0;32m"value"\e[0m, \e[0;32m"n"\e[0m: \e[0;33m1\e[0m, \e[0;32m"ok"\e[0m: \e[0;33mtrue\e[0m}
+
+    no language
+        tab indented
+
+    \e[0;2;3mnosuchlanguage\e[0m
+    kept verbatim
+
+    \e[0;2;3mmermaid diagram (source)\e[0m
+    graph TD; A-->B;
+
+    \e[0;2;3mmath\e[0m
+    \e[0;3;32mE = mc²\e[0m
+
+    \e[0;2;3mbash\e[0m
+    \e[0;34mecho\e[0m \e[0;32m"tilde fence"\e[0m
+
+A very long code line follows:
+
+    this_is_a_very_long_identifier_that_will_not_fit_in_the_
+    \e[0;2m↪ \e[0mavailable_width_of_the_terminal_and_must_wrap
+
+Inline \e[0;33mcode with spaces\e[0m and \e[0;33mcode with ` backtick\e[0m.

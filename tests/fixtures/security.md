@@ -1,0 +1,23 @@
+# Control characters
+
+Escape sequences in text: [31mred[0m, title: ]0;pwned, clipboard: ]52;c;ZXZpbA==\
+
+C1 CSI: 2J and bell:  and backspace:  and DEL: .
+
+`inline [2J code`
+
+```
+code block [1;1H[2J with escapes
+```
+
+| cell [31m | ok |
+|---|---|
+| ]8;;https://evil/x\]8;;\ | b |
+
+[link [5m](https://example.com/[0m)
+
+![alt [1m](img[0m.png)
+
+<b>html [5m</b>
+
+&#27;[31m numeric entity escape, carriagereturn.

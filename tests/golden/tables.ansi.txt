@@ -1,0 +1,38 @@
+\e[0;1mLeft\e[0m       \e[0;2m │ \e[0m  \e[0;1mCenter\e[0m   \e[0;2m │ \e[0;1mRight\e[0;2m │ \e[0;1mDefault\e[0m
+\e[0;2m────────────┼─────────────┼───────┼───────────────────\e[0m
+a          \e[0;2m │ \e[0m     b     \e[0;2m │ \e[0m    c\e[0;2m │ \e[0md
+longer text\e[0;2m │ \e[0m   \e[0;1mbold\e[0m    \e[0;2m │ \e[0m  \e[0;33m123\e[0;2m │ \e[0;4;34mlink\e[0;2m (https://x.y)\e[0m
+           \e[0;2m │ \e[0mempty first\e[0;2m │ \e[0m     \e[0;2m │\e[0m
+
+Wide table that needs wrapping:
+
+\e[0;1mOption\e[0m \e[0;2m │ \e[0;1mDescription\e[0m                            \e[0;2m │ \e[0;1mDefault\e[0m
+\e[0;2m────────┼─────────────────────────────────────────┼─────────\e[0m
+\e[0;33m--width\e[0;2m │ \e[0mSets the rendering width in columns;   \e[0;2m │ \e[0mterminal
+       \e[0;2m │ \e[0mwhen omitted the terminal width is     \e[0;2m │\e[0m
+       \e[0;2m │ \e[0mused, capped at one hundred columns.   \e[0;2m │\e[0m
+\e[0;33m--color\e[0;2m │ \e[0mControls whether colors and styles are \e[0;2m │ \e[0mauto
+       \e[0;2m │ \e[0memitted: auto detects a terminal,      \e[0;2m │\e[0m
+       \e[0;2m │ \e[0malways forces them and never disables  \e[0;2m │\e[0m
+       \e[0;2m │ \e[0mthem.                                  \e[0;2m │\e[0m
+
+Single column:
+
+\e[0;1mOnly\e[0m
+\e[0;2m────\e[0m
+one
+two
+
+Unicode cells:
+
+\e[0;1m名前\e[0m    \e[0;2m │ \e[0;1mEmoji\e[0;2m │ \e[0;1mAccents\e[0m
+\e[0;2m─────────┼───────┼────────\e[0m
+日本語  \e[0;2m │ \e[0m🎉🚀 \e[0;2m │ \e[0mcafé
+中文字符\e[0;2m │ \e[0m👍   \e[0;2m │ \e[0mnaïve
+
+Table with escaped pipe and inline html:
+
+\e[0;1mExpr\e[0m \e[0;2m │ \e[0;1mMeaning\e[0m
+\e[0;2m──────┼────────\e[0m
+\e[0;33ma | b\e[0;2m │ \e[0meither
+     \e[0;2m │ \e[0mor

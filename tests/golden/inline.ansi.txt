@@ -1,0 +1,30 @@
+Emphasis: \e[0;3mitalic\e[0m, \e[0;3malso italic\e[0m, \e[0;1mbold\e[0m, \e[0;1malso bold\e[0m, \e[0;1;3mbold italic\e[0m,
+\e[0;1mbold with \e[0;1;3mnested italic\e[0;1m inside\e[0m, \e[0;9mstrikethrough\e[0m, \e[0;9msingle tilde\e[0m.
+
+Escapes: *not italic*, # not heading, [not a link], 1. not a
+list.
+
+Entities: & < > © © 😀  end.
+
+Links: \e[0;4;34minline\e[0;2m (https://example.com)\e[0m, \e[0;4;34mwith title\e[0m
+\e[0;2m(https://example.com)\e[0m, \e[0;4;34mreference\e[0m
+\e[0;2m(https://example.org/reference)\e[0m, \e[0;4;34mcollapsed\e[0m
+\e[0;2m(https://example.org/collapsed)\e[0m, \e[0;4;34mshortcut\e[0m
+\e[0;2m(https://example.org/shortcut)\e[0m, \e[0;4;34mhttps://auto.link\e[0m,
+\e[0;4;34muser@example.com\e[0m, \e[0;4;34mhttps://www.bare-url.org\e[0m, \e[0;4;34mrelative\e[0m
+\e[0;2m(docs/guide.md)\e[0m, \e[0;4;34manchor\e[0m, \e[0;4;34mWikiLink\e[0m.
+
+Line with trailing spaces for a hard break
+next line, and a backslash break
+last line.
+
+Footnotes\e[0;36m[note]\e[0m and more\e[0;36m[long]\e[0m.
+
+\e[0;36m[note] \e[0mA short note.
+
+\e[0;36m[long] \e[0mA longer footnote that has enough text to wrap onto a
+       second line when the width is small.
+
+Inline math \e[0;3;32mE = mc²\e[0m and \e[0;3;32m∫₀^∞ e^(-x) dx = 1\e[0m.
+
+Superscript-like text: x^2^ and H~2~O.

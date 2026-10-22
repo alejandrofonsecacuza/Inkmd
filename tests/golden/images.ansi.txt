@@ -1,0 +1,12 @@
+\e[0;3;35m[image: Alt text]\e[0;2m (images/diagram.png)\e[0m
+
+\e[0;3;35m[image]\e[0;2m (no-alt.png)\e[0m
+
+\e[0;3;35m[image: Remote image]\e[0;2m (https://example.com/picture.jpg)\e[0m
+
+\e[0;3;4;35m[image: Build Status]\e[0;2m (https://ci.example.com)\e[0m \e[0;3;4;35m[image:\e[0m
+\e[0;3;4;35mCoverage]\e[0;2m (https://cov.example.com)\e[0m
+
+Inline \e[0;3;35m[image: icon]\e[0;2m (icon.png)\e[0m in the middle of text.
+
+\e[0;3;35m[image: Reference image]\e[0;2m (./assets/logo.png)\e[0m

@@ -1,0 +1,58 @@
+[package]
+name = "inkmd"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.88"
+description = "Fast, minimal Markdown renderer for the terminal"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/alejandrofonsecacuza/Inkmd"
+homepage = "https://github.com/alejandrofonsecacuza/Inkmd"
+keywords = ["markdown", "terminal", "cli", "viewer"]
+categories = ["command-line-utilities"]
+exclude = [".github/", "scripts/"]
+
+[[bin]]
+name = "inkmd"
+path = "src/main.rs"
+
+[lib]
+name = "inkmd"
+path = "src/lib.rs"
+
+[features]
+default = ["highlight", "image-decode"]
+# Syntax highlighting for fenced code blocks (syntect + bat's extended grammar set).
+highlight = ["dep:syntect", "dep:two-face"]
+# Decode JPEG/GIF/WebP so they can be sent to Kitty as raw pixels.
+# PNG is always supported without decoding (Kitty and iTerm2 accept it natively).
+image-decode = ["dep:image"]
+
+[dependencies]
+# CommonMark + GFM parser: fast, pull-based, no allocations per event beyond CowStr.
+pulldown-cmark = { version = "0.13", default-features = false }
+# Display width of characters (CJK, emoji, combining marks) for correct wrapping.
+unicode-width = "0.2"
+# Grapheme clusters, so wrapping never splits combined characters or emoji sequences.
+unicode-segmentation = "1.12"
+# Tiny argument parser (no proc-macros, negligible startup cost).
+lexopt = "0.3"
+# isatty, ioctl(TIOCGWINSZ), termios and poll for capability queries on /dev/tty.
+libc = "0.2"
+syntect = { version = "5.3", optional = true, default-features = false, features = ["parsing", "regex-onig"] }
+two-face = { version = "0.5", optional = true, default-features = false, features = ["syntect-onig"] }
+image = { version = "0.25", optional = true, default-features = false, features = ["jpeg", "gif", "webp", "png"] }
+
+[dev-dependencies]
+criterion = { version = "0.8", default-features = false, features = ["cargo_bench_support"] }
+
+[[bench]]
+name = "render"
+harness = false
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true

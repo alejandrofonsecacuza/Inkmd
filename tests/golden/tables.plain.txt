@@ -1,0 +1,38 @@
+Left        │   Center    │ Right │ Default
+────────────┼─────────────┼───────┼───────────────────
+a           │      b      │     c │ d
+longer text │    bold     │ `123` │ link (https://x.y)
+            │ empty first │       │
+
+Wide table that needs wrapping:
+
+Option    │ Description                           │ Default
+──────────┼───────────────────────────────────────┼─────────
+`--width` │ Sets the rendering width in columns;  │ terminal
+          │ when omitted the terminal width is    │
+          │ used, capped at one hundred columns.  │
+`--color` │ Controls whether colors and styles    │ auto
+          │ are emitted: auto detects a terminal, │
+          │ always forces them and never disables │
+          │ them.                                 │
+
+Single column:
+
+Only
+────
+one
+two
+
+Unicode cells:
+
+名前     │ Emoji │ Accents
+─────────┼───────┼────────
+日本語   │ 🎉🚀  │ café
+中文字符 │ 👍    │ naïve
+
+Table with escaped pipe and inline html:
+
+Expr    │ Meaning
+────────┼────────
+`a | b` │ either
+        │ or

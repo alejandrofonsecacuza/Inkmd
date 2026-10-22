@@ -1,0 +1,23 @@
+\e[0;1;35mControl characters\e[0m
+\e[0;35m━━━━━━━━━━━━━━━━━━\e[0m
+
+Escape sequences in text: ␛[31mred␛[0m, title: ␛]0;pwned␇,
+clipboard: ␛]52;c;ZXZpbA==␛\
+
+C1 CSI: �2J and bell: ␇ and backspace: ␈ and DEL: ␡.
+
+\e[0;33minline ␛[2J code\e[0m
+
+    code block ␛[1;1H␛[2J with escapes
+
+\e[0;1mcell ␛[31m\e[0m                  \e[0;2m │ \e[0;1mok\e[0m
+\e[0;2m─────────────────────────────┼───\e[0m
+␛]8;;https://evil/x␛\␛]8;;␛\\e[0;2m │ \e[0mb
+
+[link ␛[5m](\e[0;4;34mhttps://example.com/␛\e[0m[0m)
+
+![alt ␛[1m](img␛[0m.png)
+
+\e[0;1mhtml ␛[5m\e[0m
+
+␛[31m numeric entity escape, carriage return.

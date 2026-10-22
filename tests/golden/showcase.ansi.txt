@@ -1,0 +1,97 @@
+    \e[0;2;3mfront matter\e[0m
+    \e[0;35mtitle\e[0m: \e[0;32mShowcase\e[0m
+    \e[0;35mtags\e[0m: [\e[0;32mdemo\e[0m]
+
+\e[0;1;35minkmd showcase\e[0m
+\e[0;35m━━━━━━━━━━━━━━\e[0m
+
+A paragraph with \e[0;1mbold\e[0m, \e[0;3mitalic\e[0m, \e[0;1;3mboth\e[0m, \e[0;9mstrike\e[0m, \e[0;33minline code\e[0m and
+a \e[0;4;34mlink\e[0;2m (https://example.com)\e[0m, plus an autolink
+\e[0;4;34mhttps://rust-lang.org\e[0m and a bare URL \e[0;4;34mhttps://github.com\e[0m.
+Hard break here
+next line.
+
+\e[0;1;34mHeadings\e[0m
+
+\e[0;1;35mHeading level 1\e[0m
+\e[0;35m━━━━━━━━━━━━━━━\e[0m
+
+\e[0;1;34mHeading level 2\e[0m
+
+\e[0;1;36mHeading level 3\e[0m
+
+\e[0;1mHeading level 4\e[0m
+
+\e[0;1;3mHeading level 5\e[0m
+
+\e[0;2;3mHeading level 6\e[0m
+
+\e[0;1;34mLists\e[0m
+
+\e[0;36m• \e[0mFirst item
+\e[0;36m• \e[0mSecond item with a long line that should wrap nicely under
+  the bullet without breaking the hanging indent
+  \e[0;36m◦ \e[0mNested item
+    \e[0;36m▪ \e[0mDeeper item
+\e[0;36m☐ \e[0mPending task
+\e[0;32m☑ \e[0mDone task
+
+\e[0;36m1. \e[0mOne
+\e[0;36m2. \e[0mTwo
+   \e[0;36m1. \e[0mTwo point one
+\e[0;36m3. \e[0mTen
+
+\e[0;1;36mQuotes\e[0m
+
+\e[0;2;36m│ \e[0mA simple quote that is long enough to wrap across more
+\e[0;2;36m│ \e[0mthan one line in a narrow terminal.
+\e[0;2;36m│\e[0m
+\e[0;2;36m│ │ \e[0mNested quote.
+
+\e[0;33m│ \e[0;1;33mWarning\e[0m
+\e[0;33m│ \e[0mBe careful with this.
+
+\e[0;1mCode\e[0m
+
+    \e[0;2;3mrust\e[0m
+    \e[0;35mfn\e[0m \e[0;34mmain\e[0m() {
+        \e[0;2;3m// comment\e[0m
+        \e[0;35mlet\e[0m x = \e[0;33m42\e[0m;
+        println!(\e[0;32m"hello \e[0;33m{x}\e[0;32m"\e[0m);
+    }
+
+    \e[0;2;3munknownlang\e[0m
+    plain text block
+
+    indented code
+
+\e[0;1;3mTable\e[0m
+
+\e[0;1mName\e[0m                  \e[0;2m │ \e[0;1mAlign right\e[0;2m │ \e[0;1mCenter\e[0m
+\e[0;2m───────────────────────┼─────────────┼───────\e[0m
+\e[0;33ma\e[0m                     \e[0;2m │ \e[0m          1\e[0;2m │ \e[0m  x
+long cell content here\e[0;2m │ \e[0m      12345\e[0;2m │ \e[0m yes
+
+\e[0;2;3mMisc\e[0m
+
+\e[0;1mTerm\e[0m
+    Definition of the term.
+
+Footnote reference\e[0;36m[1]\e[0m.
+
+\e[0;36m[1] \e[0mThe footnote text.
+
+Math: \e[0;3;32mα² + β₁ ≤ √x\e[0m
+
+\e[0;3;32m∑ᵢ₌₁ⁿ i = (n(n+1))/2\e[0m
+
+\e[0;3;35m[image: Sample image]\e[0;2m (assets/sample.png)\e[0m \e[0;3;35m[image: remote]\e[0m
+\e[0;2m(https://example.com/x.png)\e[0m
+
+\e[0;1mHTML\e[0m bold and \e[0;33mCtrl\e[0m+\e[0;33mC\e[0m
+new line © 2024
+
+\e[0;2m────────────────────────────────────────────────────────────\e[0m
+
+Unicode: 日本語のテキスト, emoji 🎉👨‍👩‍👧, café, Ελληνικά,
+العربية.

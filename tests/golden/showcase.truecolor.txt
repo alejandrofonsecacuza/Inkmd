@@ -1,0 +1,95 @@
+    \e[0;3;38;2;122;130;144mfront matter\e[0m
+    \e[0;38;2;198;156;240mtitle\e[0;38;2;216;220;228m: \e[0;38;2;156;204;132mShowcase\e[0m
+    \e[0;38;2;198;156;240mtags\e[0;38;2;216;220;228m: [\e[0;38;2;156;204;132mdemo\e[0;38;2;216;220;228m]\e[0m
+
+\e[0;1;38;2;198;156;240minkmd showcase\e[0m
+\e[0;38;2;198;156;240m━━━━━━━━━━━━━━\e[0m
+
+A paragraph with \e[0;1mbold\e[0m, \e[0;3mitalic\e[0m, \e[0;1;3mboth\e[0m, \e[0;9mstrike\e[0m, \e[0;38;2;232;192;122minline code\e[0m and a \e[0;4;38;2;122;180;240mlink\e[0m
+\e[0;38;2;122;130;144m(https://example.com)\e[0m, plus an autolink \e[0;4;38;2;122;180;240mhttps://rust-lang.org\e[0m and a bare URL
+\e[0;4;38;2;122;180;240mhttps://github.com\e[0m. Hard break here
+next line.
+
+\e[0;1;38;2;122;180;240mHeadings\e[0m
+
+\e[0;1;38;2;198;156;240mHeading level 1\e[0m
+\e[0;38;2;198;156;240m━━━━━━━━━━━━━━━\e[0m
+
+\e[0;1;38;2;122;180;240mHeading level 2\e[0m
+
+\e[0;1;38;2;108;200;200mHeading level 3\e[0m
+
+\e[0;1;38;2;216;220;228mHeading level 4\e[0m
+
+\e[0;1;3;38;2;216;220;228mHeading level 5\e[0m
+
+\e[0;3;38;2;122;130;144mHeading level 6\e[0m
+
+\e[0;1;38;2;122;180;240mLists\e[0m
+
+\e[0;38;2;108;200;200m• \e[0mFirst item
+\e[0;38;2;108;200;200m• \e[0mSecond item with a long line that should wrap nicely under the bullet without
+  breaking the hanging indent
+  \e[0;38;2;108;200;200m◦ \e[0mNested item
+    \e[0;38;2;108;200;200m▪ \e[0mDeeper item
+\e[0;38;2;108;200;200m☐ \e[0mPending task
+\e[0;38;2;156;204;132m☑ \e[0mDone task
+
+\e[0;38;2;108;200;200m1. \e[0mOne
+\e[0;38;2;108;200;200m2. \e[0mTwo
+   \e[0;38;2;108;200;200m1. \e[0mTwo point one
+\e[0;38;2;108;200;200m3. \e[0mTen
+
+\e[0;1;38;2;108;200;200mQuotes\e[0m
+
+\e[0;38;2;138;154;176m│ \e[0mA simple quote that is long enough to wrap across more than one line in a
+\e[0;38;2;138;154;176m│ \e[0mnarrow terminal.
+\e[0;38;2;138;154;176m│\e[0m
+\e[0;38;2;138;154;176m│ │ \e[0mNested quote.
+
+\e[0;38;2;232;192;122m│ \e[0;1;38;2;232;192;122mWarning\e[0m
+\e[0;38;2;232;192;122m│ \e[0mBe careful with this.
+
+\e[0;1;38;2;216;220;228mCode\e[0m
+
+    \e[0;3;38;2;122;130;144mrust\e[0m
+    \e[0;38;2;198;156;240mfn\e[0;38;2;216;220;228m \e[0;38;2;122;180;240mmain\e[0;38;2;216;220;228m() {\e[0m
+    \e[0;38;2;216;220;228m    \e[0;3;38;2;122;130;144m// comment\e[0m
+    \e[0;38;2;216;220;228m    \e[0;38;2;198;156;240mlet\e[0;38;2;216;220;228m x = \e[0;38;2;232;160;108m42\e[0;38;2;216;220;228m;\e[0m
+    \e[0;38;2;216;220;228m    println!(\e[0;38;2;156;204;132m"hello \e[0;38;2;232;160;108m{x}\e[0;38;2;156;204;132m"\e[0;38;2;216;220;228m);\e[0m
+    \e[0;38;2;216;220;228m}\e[0m
+
+    \e[0;3;38;2;122;130;144munknownlang\e[0m
+    \e[0;38;2;216;220;228mplain text block\e[0m
+
+    \e[0;38;2;216;220;228mindented code\e[0m
+
+\e[0;1;3;38;2;216;220;228mTable\e[0m
+
+\e[0;1;38;2;216;220;228mName\e[0m                  \e[0;38;2;122;130;144m │ \e[0;1;38;2;216;220;228mAlign right\e[0;38;2;122;130;144m │ \e[0;1;38;2;216;220;228mCenter\e[0m
+\e[0;38;2;122;130;144m───────────────────────┼─────────────┼───────\e[0m
+\e[0;38;2;232;192;122ma\e[0m                     \e[0;38;2;122;130;144m │ \e[0m          1\e[0;38;2;122;130;144m │ \e[0m  x
+long cell content here\e[0;38;2;122;130;144m │ \e[0m      12345\e[0;38;2;122;130;144m │ \e[0m yes
+
+\e[0;3;38;2;122;130;144mMisc\e[0m
+
+\e[0;1mTerm\e[0m
+    Definition of the term.
+
+Footnote reference\e[0;38;2;108;200;200m[1]\e[0m.
+
+\e[0;38;2;108;200;200m[1] \e[0mThe footnote text.
+
+Math: \e[0;3;38;2;156;204;132mα² + β₁ ≤ √x\e[0m
+
+\e[0;3;38;2;156;204;132m∑ᵢ₌₁ⁿ i = (n(n+1))/2\e[0m
+
+\e[0;3;38;2;198;156;240m[image: Sample image]\e[0;38;2;122;130;144m (assets/sample.png)\e[0m \e[0;3;38;2;198;156;240m[image: remote]\e[0m
+\e[0;38;2;122;130;144m(https://example.com/x.png)\e[0m
+
+\e[0;1mHTML\e[0m bold and \e[0;38;2;232;192;122mCtrl\e[0m+\e[0;38;2;232;192;122mC\e[0m
+new line © 2024
+
+\e[0;38;2;122;130;144m────────────────────────────────────────────────────────────────────────────────\e[0m
+
+Unicode: 日本語のテキスト, emoji 🎉👨‍👩‍👧, café, Ελληνικά, العربية.

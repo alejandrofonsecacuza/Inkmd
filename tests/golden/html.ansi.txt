@@ -1,0 +1,21 @@
+\e[0;3;35m[image: Project logo]\e[0;2m (missing-logo.png)\e[0m
+
+\e[0;1;35mHTML Title\e[0m
+
+\e[0;36m▸ \e[0;1mClick to expand\e[0m
+
+Hidden \e[0;1mmarkdown\e[0m content.
+
+Press \e[0;33mCtrl\e[0m + \e[0;33mC\e[0m to copy. Some \e[0;1;33mmarked\e[0m, sub, sup, \e[0;4munderlined\e[0m,
+\e[0;9mdeleted\e[0m.
+
+\e[0;4;34mHTML link\e[0;2m (https://example.com)\e[0m and line
+break.
+
+\e[0;1mCol A\e[0;2m │ \e[0;1mCol B\e[0m
+1\e[0;2m │ \e[0m2
+
+\e[0;36m• \e[0mhtml item one
+\e[0;36m• \e[0mhtml item two
+
+Unknown tag content kept & entity.

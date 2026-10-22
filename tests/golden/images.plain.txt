@@ -1,0 +1,12 @@
+[image: Alt text] (images/diagram.png)
+
+[image] (no-alt.png)
+
+[image: Remote image] (https://example.com/picture.jpg)
+
+[image: Build Status] (https://ci.example.com) [image:
+Coverage] (https://cov.example.com)
+
+Inline [image: icon] (icon.png) in the middle of text.
+
+[image: Reference image] (./assets/logo.png)

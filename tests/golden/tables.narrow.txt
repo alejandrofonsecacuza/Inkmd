@@ -1,0 +1,64 @@
+Left  | Cente | Right | Defaul
+      |   r   |       | t
+------+-------+-------+-------
+a     |   b   |     c | d
+longe | bold  | `123` | link
+r     |       |       | (https
+text  |       |       | ://x.y
+      |       |       | )
+      | empty |       |
+      | first |       |
+
+Wide table that needs
+wrapping:
+
+Optio | Description | Default
+n     |             |
+------+-------------+---------
+`--wi | Sets the    | terminal
+dth`  | rendering   |
+      | width in    |
+      | columns;    |
+      | when        |
+      | omitted the |
+      | terminal    |
+      | width is    |
+      | used,       |
+      | capped at   |
+      | one hundred |
+      | columns.    |
+`--co | Controls    | auto
+lor`  | whether     |
+      | colors and  |
+      | styles are  |
+      | emitted:    |
+      | auto        |
+      | detects a   |
+      | terminal,   |
+      | always      |
+      | forces them |
+      | and never   |
+      | disables    |
+      | them.       |
+
+Single column:
+
+Only
+----
+one
+two
+
+Unicode cells:
+
+名前     | Emoji | Accents
+---------+-------+--------
+日本語   | 🎉🚀  | café
+中文字符 | 👍    | naïve
+
+Table with escaped pipe and
+inline html:
+
+Expr    | Meaning
+--------+--------
+`a | b` | either
+        | or

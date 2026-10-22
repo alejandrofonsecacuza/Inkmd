@@ -1,0 +1,89 @@
+---
+title: Showcase
+tags: [demo]
+---
+
+# inkmd showcase
+
+A paragraph with **bold**, *italic*, ***both***, ~~strike~~, `inline code` and a
+[link](https://example.com "title"), plus an autolink <https://rust-lang.org>
+and a bare URL https://github.com. Hard break here\
+next line.
+
+## Headings
+
+# Heading level 1
+## Heading level 2
+### Heading level 3
+#### Heading level 4
+##### Heading level 5
+###### Heading level 6
+
+## Lists
+
+- First item
+- Second item with a long line that should wrap nicely under the bullet without breaking the hanging indent
+  - Nested item
+    - Deeper item
+- [ ] Pending task
+- [x] Done task
+
+1. One
+2. Two
+   1. Two point one
+10. Ten
+
+### Quotes
+
+> A simple quote that is long enough to wrap across more than one line in a narrow terminal.
+>
+> > Nested quote.
+
+> [!WARNING]
+> Be careful with this.
+
+#### Code
+
+```rust
+fn main() {
+    // comment
+    let x = 42;
+    println!("hello {x}");
+}
+```
+
+```unknownlang
+plain text block
+```
+
+    indented code
+
+##### Table
+
+| Name | Align right | Center |
+|:-----|------------:|:------:|
+| `a`  | 1           | x      |
+| long cell content here | 12345 | yes |
+
+###### Misc
+
+Term
+: Definition of the term.
+
+Footnote reference[^1].
+
+[^1]: The footnote text.
+
+Math: $\alpha^2 + \beta_1 \leq \sqrt{x}$
+
+$$\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$$
+
+![Sample image](assets/sample.png) ![remote](https://example.com/x.png)
+
+<p align="center"><b>HTML</b> bold and <kbd>Ctrl</kbd>+<kbd>C</kbd><br>new line &copy; 2024</p>
+
+<!-- hidden comment -->
+
+---
+
+Unicode: 日本語のテキスト, emoji 🎉👨‍👩‍👧, café, Ελληνικά, العربية.

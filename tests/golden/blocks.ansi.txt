@@ -1,0 +1,54 @@
+\e[0;1;35mHeading 1\e[0m
+\e[0;35m━━━━━━━━━\e[0m
+
+\e[0;1;34mHeading 2\e[0m
+
+\e[0;1;36mHeading 3\e[0m
+
+\e[0;1mHeading 4\e[0m
+
+\e[0;1;3mHeading 5\e[0m
+
+\e[0;2;3mHeading 6\e[0m
+
+\e[0;1;35mSetext Heading\e[0m
+\e[0;35m━━━━━━━━━━━━━━\e[0m
+
+\e[0;1;34mAnother Setext\e[0m
+
+\e[0;1;35mA very long heading that certainly needs to wrap across\e[0m
+\e[0;1;35mmultiple lines at narrow widths\e[0m
+\e[0;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m
+
+Paragraph one.
+
+\e[0;2m────────────────────────────────────────────────────────────\e[0m
+
+Paragraph two.
+
+\e[0;2;36m│ \e[0mQuote level one
+\e[0;2;36m│\e[0m
+\e[0;2;36m│ │ \e[0mQuote level two
+\e[0;2;36m│ │\e[0m
+\e[0;2;36m│ │ │ \e[0mQuote level three
+
+\e[0;34m│ \e[0;1;34mNote\e[0m
+\e[0;34m│ \e[0mUseful information.
+
+\e[0;32m│ \e[0;1;32mTip\e[0m
+\e[0;32m│ \e[0mHelpful advice.
+
+\e[0;35m│ \e[0;1;35mImportant\e[0m
+\e[0;35m│ \e[0mKey information.
+
+\e[0;31m│ \e[0;1;31mCaution\e[0m
+\e[0;31m│ \e[0mNegative consequences.
+
+\e[0;1mApple\e[0m
+    A fruit.
+    A company.
+
+\e[0;1mOrange\e[0m
+    Another fruit.
+
+\e[0;1;34mHeading with \e[0;1;33mcode\e[0;1;34m and \e[0;1;3;34memphasis\e[0m

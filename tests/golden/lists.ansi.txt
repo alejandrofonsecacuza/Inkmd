@@ -1,0 +1,44 @@
+Tight list:
+
+\e[0;36m• \e[0malpha
+\e[0;36m• \e[0mbeta with \e[0;1mbold\e[0m and \e[0;33mcode\e[0m
+  \e[0;36m◦ \e[0mnested one
+  \e[0;36m◦ \e[0mnested two
+    \e[0;36m1. \e[0mdeep ordered
+    \e[0;36m2. \e[0mdeep ordered two
+\e[0;36m• \e[0mgamma
+
+Loose list:
+
+\e[0;36m1. \e[0mFirst paragraph item.
+
+   Second paragraph inside the first item.
+
+\e[0;36m2. \e[0mSecond item.
+
+       \e[0;2;3msh\e[0m
+       \e[0;34mecho\e[0m \e[0;32m"code inside a list"\e[0m
+
+\e[0;36m3. \e[0mThird item with a quote:
+
+   \e[0;2;36m│ \e[0mquoted inside list
+
+Starting at 7:
+
+\e[0;36m7. \e[0mseven
+\e[0;36m8. \e[0meight
+\e[0;36m9. \e[0mnine
+\e[0;36m10. \e[0mten
+\e[0;36m11. \e[0meleven
+
+Tasks:
+
+\e[0;32m☑ \e[0mwrite the parser
+\e[0;36m☐ \e[0mwrite the renderer, which is a fairly long task
+  description that wraps
+\e[0;36m☐ \e[0mship it
+  \e[0;32m☑ \e[0mnested task
+
+\e[0;36m• \e[0mstar bullet
+
+\e[0;36m• \e[0mplus bullet
