@@ -10,7 +10,7 @@ repository = "https://github.com/alejandrofonsecacuza/Inkmd"
 homepage = "https://github.com/alejandrofonsecacuza/Inkmd"
 keywords = ["markdown", "terminal", "cli", "viewer"]
 categories = ["command-line-utilities"]
-exclude = [".github/", "scripts/", "doc/screenshots/"]
+exclude = [".github/", "scripts/", "doc/screenshots/", "doc/*.png"]
 
 [[bin]]
 name = "inkmd"

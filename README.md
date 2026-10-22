@@ -1,10 +1,18 @@
-# inkmd
+<p align="center">
+  <img src="doc/logo.png" alt="inkmd" width="600">
+</p>
 
-A fast, minimal Markdown renderer for Linux and macOS terminals, written in Rust.
+<p align="center">
+  A fast, minimal Markdown renderer for Linux and macOS terminals, written in Rust.
+</p>
 
 ```bash
 inkmd README.md
 ```
+
+<p align="center">
+  <img src="doc/screenshots/demo.png" alt="inkmd rendering doc/demo.md in Kitty" width="560">
+</p>
 
 The document is rendered right in the terminal you are using, and the command
 exits. There is no browser, server, pager or interactive UI. `inkmd` does one
